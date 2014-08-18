@@ -10,4 +10,3 @@ of sorts.
 Active Projects
 ---------------
 * Multisnake
-* Blah Blah Blah
