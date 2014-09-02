@@ -27,13 +27,14 @@ bindings = [['w', 'a', 's', 'd'],	# Convention: [up, left, down, right]
 
 movements = ['w', 'a', 's', 'd']
 directions = {'w':0,'a':1,'s':2,'d':3}
+conflicts = [('w', 's'), ('a', 'd'), ('s', 'w'), ('d', 'a')]
 
 
 def changePath(line, direction):
 	global lineState
 	if lineState[line][0] == direction:		# If the same direction, increment strength of turn
 		lineState[line][1] = lineState[line][1] + 1
-	else:
+	elif (lineState[line][0], direction) not in conflicts:
 		lineState[line] = [direction, lineState[line][1]]
 	
 def updatePositions():
